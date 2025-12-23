@@ -11,15 +11,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
 
     };
-    dgop = {
-      url = "github:AvengeMedia/dgop";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    dankMaterialShell = {
-      url = "github:AvengeMedia/DankMaterialShell";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.dgop.follows = "dgop";
-    };
     quickshell = {
       url = "github:quickshell-mirror/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,27 +19,34 @@
       url = "github:catppuccin/fuzzel";
       flake = false;
     };
+    catppuccin-waybar = {
+      url = "github:catppuccin/waybar";
+      flake = false;
+    };
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    niri,
-    ...
-  } @inputs: {
-    nixosConfigurations.lain = nixpkgs.lib.nixosSystem {
-      modules = [
-        home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit inputs;  };
-        }
-        niri.nixosModules.niri
-        ./configuration.nix
-      ];
-      specialArgs = {
-        inherit inputs;
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      niri,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations.lain = nixpkgs.lib.nixosSystem {
+        modules = [
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
+          }
+          niri.nixosModules.niri
+          ./configuration.nix
+        ];
+        specialArgs = {
+          inherit inputs;
+        };
       };
-    }; 
-  };
+    };
 }

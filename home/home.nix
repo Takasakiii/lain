@@ -1,22 +1,17 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   home-manager.users.takasaki =
     { ... }:
     {
       imports = [
         inputs.nix-flatpak.homeManagerModules.nix-flatpak
-        inputs.dankMaterialShell.homeModules.dank-material-shell
-        inputs.dankMaterialShell.homeModules.niri
         ./niri.nix
         ./flatpaks.nix
+        ./waybar.nix
       ];
 
       programs = {
-        dank-material-shell = {
-          enable = true;
-          systemd.enable = true;
-          quickshell.package = inputs.quickshell.packages.x86_64-linux.quickshell;
-        };
+
         direnv = {
           enable = true;
           enableZshIntegration = true;
@@ -38,6 +33,19 @@
       xdg.configFile."fuzzel/fuzzel.ini".text = ''
         include=${inputs.catppuccin-fuzzel}/themes/catppuccin-mocha/blue.ini
       '';
+
+      services.network-manager-applet = {
+        enable = true;
+      };
+
+      gtk = {
+        enable = true;
+        iconTheme = {
+          name = "Papirus-Dark";
+          package = pkgs.papirus-icon-theme;
+        };
+      };
+
       home.stateVersion = "25.11";
     };
 }

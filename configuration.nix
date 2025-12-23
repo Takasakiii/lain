@@ -138,6 +138,10 @@
     };
   };
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+  ];
+
   system.stateVersion = "26.05"; # Did you read the comment?
 
 }

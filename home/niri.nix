@@ -57,7 +57,10 @@
 
     layout = {
       default-column-width.proportion = 0.5;
-      gaps = 10;
+      focus-ring = {
+        width = 2;
+      };
+      gaps = 5;
     };
 
     prefer-no-csd = true;
