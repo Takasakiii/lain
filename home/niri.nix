@@ -1,54 +1,6 @@
-{ inputs, ... }:
+{  config, ... }:
 {
-  home-manager.users.takasaki = { config, ... } : {
-    imports = [
-      inputs.nix-flatpak.homeManagerModules.nix-flatpak
-      inputs.dankMaterialShell.homeModules.dankMaterialShell.default
-      inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
-    ];
-
-    services.flatpak = {
-      packages = [
-        "dev.vencord.Vesktop"
-        "app.zen_browser.zen"
-        "com.slack.Slack"
-        "io.dbeaver.DBeaverCommunity"
-        "org.filezillaproject.Filezilla"
-        "org.prismlauncher.PrismLauncher"
-        "org.onlyoffice.desktopeditors"
-        "io.github.mfat.sshpilot"
-        "org.keepassxc.KeePassXC"
-        "org.chromium.Chromium"
-        "com.valvesoftware.Steam"
-        "org.freedesktop.Platform.VulkanLayer.gamescope/x86_64/25.08"
-      ];
-      overrides = {
-        "app.zen_browser.zen".Context = {
-          filesystems = [
-            "/home/takasaki/Downloads:rw"
-          ];
-        };
-        
-        "dev.vencord.Vesktop".Context = {
-          filesystems = [
-            "/home/takasaki/Downloads:rw"
-          ];
-        };
-
-        
-        "com.slack.Slack".Context = {
-          filesystems = [
-            "/home/takasaki/Downloads:rw"
-          ];
-        };
-        
-      };
-    };
-
-
-    home.sessionPath = ["$HOME/.local/bin"];
-    
-    programs.niri.settings = {
+  programs.niri.settings = {
       spawn-at-startup = [
         { sh = "$HOME/.local/bin/wall"; }
       ];
@@ -63,7 +15,7 @@
           xkb.layout = "us(intl)";
         };
       };
-      
+
       outputs = {
         "DP-2".enable = false;
 
@@ -84,7 +36,7 @@
           variable-refresh-rate = false;
         };
 
-  
+
 
         "HDMI-A-1" = {
           mode = {
@@ -115,7 +67,7 @@
       gestures = {
         hot-corners.enable = false;
       };
-            
+
       binds = with config.lib.niri.actions; {
          # -- Overlays & Spawning --
           "Mod+Shift+Slash".action = show-hotkey-overlay;
@@ -339,34 +291,4 @@
           "Mod+Shift+S".action.screenshot = [];
       };
     };
-
-    programs = {
-      dankMaterialShell = {
-        enable = true;
-        systemd.enable = true;
-        quickshell.package = inputs.quickshell.packages.x86_64-linux.quickshell;
-      };
-      direnv = {
-        enable = true;
-        enableZshIntegration = true;
-        enableBashIntegration = true;
-        nix-direnv.enable = true;
-      };
-      git = {
-        enable = true;
-        settings = {
-          user = {
-            email = "lucasmc2709@live.com";
-            name = "Takasakiii";
-          };
-          init.defaultBranch = "main";
-        };
-      };
-    };
-
-    xdg.configFile."fuzzel/fuzzel.ini".text = ''
-      include=${inputs.catppuccin-fuzzel}/themes/catppuccin-mocha/blue.ini 
-    '';
-    home.stateVersion = "25.11";
-  };
 }

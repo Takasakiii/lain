@@ -2,15 +2,18 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./home.nix
-    ];
-
+  imports = [
+    ./hardware-configuration.nix
+    ./home/home.nix
+    ./packages.nix
+  ];
 
   boot = {
     loader = {
@@ -27,7 +30,7 @@
         19132
       ];
     };
-  }; 
+  };
 
   nixpkgs = {
     config = {
@@ -35,7 +38,7 @@
       android_sdk.accept_license = true;
     };
   };
-  
+
   users = {
     extraUsers.takasaki.shell = pkgs.zsh;
     users.takasaki = {
@@ -47,8 +50,6 @@
       ];
     };
   };
-  
-  
 
   programs = {
     niri.enable = true;
@@ -74,28 +75,6 @@
   };
 
   environment = {
-    systemPackages = with pkgs; [
-      alacritty
-      helix
-      fuzzel
-      zed-editor-fhs
-      android-studio
-      xwayland-satellite
-      nautilus
-      vscode
-      mpvpaper
-      jetbrains.idea-ultimate
-      wl-clipboard
-      xclip
-      xsel
-      cliphist
-      nixd
-      nil
-      bluetui
-      distrobox
-      power-profiles-daemon
-    ];
-
     sessionVariables.TZ = config.time.timeZone;
   };
 
@@ -120,7 +99,7 @@
         };
       };
 
-      package = config.boot.kernelPackages.nvidiaPackages.beta; 
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
     enableRedistributableFirmware = true;
     bluetooth.enable = true;
@@ -142,18 +121,15 @@
     };
   };
 
-   
-
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
 
-
   systemd.user.services.niri-flake-polkit.enable = false;
 
   time.timeZone = "America/Sao_Paulo";
-  i18n.defaultLocale = "pt_BR.UTF-8"; 
+  i18n.defaultLocale = "pt_BR.UTF-8";
 
   virtualisation = {
     podman = {
@@ -165,4 +141,3 @@
   system.stateVersion = "26.05"; # Did you read the comment?
 
 }
-
