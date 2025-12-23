@@ -34,6 +34,12 @@
         ];
       };
 
+      "org.chromium.Chromium".Context = {
+        filesystems = [
+          "/home/takasaki/Downloads:rw"
+        ];
+      };
+
     };
   };
 }
