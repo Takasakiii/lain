@@ -1,10 +1,6 @@
 { config, ... }:
 {
   programs.niri.settings = {
-    spawn-at-startup = [
-      { sh = "$HOME/.local/bin/wall"; }
-    ];
-
     debug = {
       render-drm-device = "/dev/dri/renderD128";
     };

@@ -8,6 +8,7 @@
         ./niri.nix
         ./flatpaks.nix
         ./waybar.nix
+        ./wallpaper.nix
       ];
 
       programs = {
