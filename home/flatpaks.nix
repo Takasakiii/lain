@@ -14,6 +14,7 @@
       "org.chromium.Chromium"
       "com.valvesoftware.Steam"
       "org.freedesktop.Platform.VulkanLayer.gamescope/x86_64/25.08"
+      "com.obsproject.Studio"
     ];
     overrides = {
       "app.zen_browser.zen".Context = {
