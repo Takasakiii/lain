@@ -19,6 +19,8 @@
         "io.github.mfat.sshpilot"
         "org.keepassxc.KeePassXC"
         "org.chromium.Chromium"
+        "com.valvesoftware.Steam"
+        "org.freedesktop.Platform.VulkanLayer.gamescope/x86_64/25.08"
       ];
       overrides = {
         "app.zen_browser.zen".Context = {
@@ -352,13 +354,12 @@
       };
       git = {
         enable = true;
-        userName = "Takasakiii";
-        userEmail = "lucasmc2709@live.com";
-
-        extraConfig = {
-          init = {
-            defaultBranch = "main";
+        settings = {
+          user = {
+            email = "lucasmc2709@live.com";
+            name = "Takasakiii";
           };
+          init.defaultBranch = "main";
         };
       };
     };

@@ -93,6 +93,7 @@
       nil
       bluetui
       distrobox
+      power-profiles-daemon
     ];
 
     sessionVariables.TZ = config.time.timeZone;
@@ -135,6 +136,9 @@
     pipewire = {
       enable = true;
       pulse.enable = true;
+    };
+    power-profiles-daemon = {
+      enable = true;
     };
   };
 
