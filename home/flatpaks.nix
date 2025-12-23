@@ -40,7 +40,7 @@
           "/home/takasaki/Downloads:rw"
         ];
       };
-
     };
+    update.onActivation = true;
   };
 }
