@@ -8,6 +8,7 @@
       margin-top = 5;
       margin-left = 5;
       margin-right = 5;
+      height = 30;
       modules-left = [
         "niri/window"
         "wlr/taskbar"
@@ -104,7 +105,7 @@
       }
 
       window#waybar {
-          background: transparent;
+        background: transparent;
       }
 
       #window,#clock.date,#tray,#taskbar,#clock,#pulseaudio,#battery,#custom-poweroff {
