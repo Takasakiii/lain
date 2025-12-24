@@ -9,6 +9,7 @@
         ./flatpaks.nix
         ./waybar.nix
         ./wallpaper.nix
+        ./zed.nix
       ];
 
       programs = {
