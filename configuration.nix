@@ -5,6 +5,7 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   ...
 }:
 
@@ -28,6 +29,9 @@
     firewall = {
       allowedUDPPorts = [
         19132
+      ];
+      allowedTCPPorts = [
+        25565
       ];
     };
   };
@@ -115,9 +119,17 @@
     pipewire = {
       enable = true;
       pulse.enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
     };
     power-profiles-daemon = {
       enable = true;
+    };
+    kubo = {
+      enable = true;
+      package = pkgs-unstable.kubo;
     };
   };
 
@@ -138,9 +150,12 @@
     };
   };
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.fira-code
-  ];
+  fonts = {
+    fontDir.enable = true;
+    packages = with pkgs; [
+      nerd-fonts.fira-code
+    ];
+  };
 
   system.stateVersion = "26.05"; # Did you read the comment?
 

@@ -15,6 +15,7 @@
       "com.valvesoftware.Steam"
       "org.freedesktop.Platform.VulkanLayer.gamescope/x86_64/25.08"
       "com.obsproject.Studio"
+      "com.parsecgaming.parsec"
     ];
     overrides = {
       "app.zen_browser.zen".Context = {

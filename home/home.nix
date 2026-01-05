@@ -30,6 +30,13 @@
             init.defaultBranch = "main";
           };
         };
+        emacs = {
+          enable = true;
+          extraPackages =
+            epkgs: with epkgs; [
+              treesit-grammars.with-all-grammars
+            ];
+        };
       };
 
       xdg.configFile."fuzzel/fuzzel.ini".text = ''

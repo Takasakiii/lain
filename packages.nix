@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     alacritty
     helix
+    ispell
     fuzzel
     zed-editor-fhs
     android-studio
@@ -20,5 +21,13 @@
     bluetui
     distrobox
     power-profiles-daemon
+    mission-center
+    davinci-resolve
+    presenterm
+    pulsemixer
+    unzip
+    ffmpeg
+    mpv
+    aseprite
   ];
 }
