@@ -22,7 +22,6 @@
     distrobox
     power-profiles-daemon
     mission-center
-    davinci-resolve
     presenterm
     pulsemixer
     unzip

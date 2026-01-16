@@ -16,6 +16,7 @@
       "org.freedesktop.Platform.VulkanLayer.gamescope/x86_64/25.08"
       "com.obsproject.Studio"
       "com.parsecgaming.parsec"
+      "org.tigervnc.vncviewer"
     ];
     overrides = {
       "app.zen_browser.zen".Context = {
