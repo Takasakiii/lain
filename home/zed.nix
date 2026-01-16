@@ -15,5 +15,16 @@
         format_on_save = "off";
       };
     };
+    auto_install_extensions = {
+      angular = true;
+      nix = true;
+      tokyo-night = true;
+      material-icon-theme = true;
+      php = true;
+      java = true;
+      html = true;
+      emmet = true;
+      toml = true;
+    };
   };
 }
