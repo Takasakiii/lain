@@ -4,9 +4,7 @@
     { ... }:
     {
       imports = [
-        inputs.nix-flatpak.homeManagerModules.nix-flatpak
         ./niri.nix
-        ./flatpaks.nix
         ./waybar.nix
         ./wallpaper.nix
         ./zed.nix

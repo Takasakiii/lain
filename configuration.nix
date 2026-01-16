@@ -14,6 +14,7 @@
     ./hardware-configuration.nix
     ./home/home.nix
     ./packages.nix
+    ./flatpaks.nix
   ];
 
   boot = {

@@ -32,6 +32,7 @@
       home-manager,
       niri,
       nixpkgs-unstable,
+      nix-flatpak,
       ...
     }@inputs:
     let
@@ -52,6 +53,7 @@
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
           niri.nixosModules.niri
+          nix-flatpak.nixosModules.nix-flatpak
           ./configuration.nix
         ];
         specialArgs = {
