@@ -24,6 +24,10 @@
       url = "github:catppuccin/waybar";
       flake = false;
     };
+    nix-ld = {
+      url = "github:Mic92/nix-ld";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -33,6 +37,7 @@
       niri,
       nixpkgs-unstable,
       nix-flatpak,
+      nix-ld,
       ...
     }@inputs:
     let
@@ -54,6 +59,7 @@
           }
           niri.nixosModules.niri
           nix-flatpak.nixosModules.nix-flatpak
+          nix-ld.nixosModules.nix-ld
           ./configuration.nix
         ];
         specialArgs = {

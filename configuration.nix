@@ -67,6 +67,7 @@
       };
       flake = "/home/takasaki/lain";
     };
+    nix-ld.dev.enable = true;
   };
 
   environment = {
