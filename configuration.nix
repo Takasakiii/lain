@@ -58,17 +58,7 @@
 
   programs = {
     niri.enable = true;
-    zsh = {
-      enable = true;
-      ohMyZsh = {
-        enable = true;
-        plugins = [
-          "git"
-          "direnv"
-        ];
-        theme = "robbyrussell";
-      };
-    };
+    zsh.enable = true;
     nh = {
       enable = true;
       clean = {
