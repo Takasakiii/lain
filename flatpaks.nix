@@ -1,6 +1,7 @@
 { ... }:
 {
   services.flatpak = {
+    enable = true;
     packages = [
       "dev.vencord.Vesktop"
       "app.zen_browser.zen"
@@ -17,6 +18,7 @@
       "com.obsproject.Studio"
       "com.parsecgaming.parsec"
       "org.tigervnc.vncviewer"
+      "org.jousse.vincent.Pomodorolm"
     ];
     overrides = {
       "app.zen_browser.zen".Context = {

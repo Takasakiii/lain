@@ -28,6 +28,7 @@
       url = "github:Mic92/nix-ld";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    clipboard-sync.url = "github:dnut/clipboard-sync";
   };
 
   outputs =
@@ -38,6 +39,7 @@
       nixpkgs-unstable,
       nix-flatpak,
       nix-ld,
+      clipboard-sync,
       ...
     }@inputs:
     let
@@ -60,6 +62,7 @@
           niri.nixosModules.niri
           nix-flatpak.nixosModules.nix-flatpak
           nix-ld.nixosModules.nix-ld
+          clipboard-sync.nixosModules.default
           ./configuration.nix
         ];
         specialArgs = {

@@ -107,7 +107,6 @@
       "modesetting"
       "nvidia"
     ];
-    flatpak.enable = true;
     pipewire = {
       enable = true;
       pulse.enable = true;
@@ -123,6 +122,7 @@
       enable = true;
       package = pkgs-unstable.kubo;
     };
+    clipboard-sync.enable = true;
   };
 
   nix.settings.experimental-features = [
